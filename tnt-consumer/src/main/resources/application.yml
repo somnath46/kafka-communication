@@ -1,1 +1,23 @@
+server:
+  port: 9096
+
+tnt:
+  kafka:
+    topic: dummy-topic
+
+spring:
+  kafka:
+    consumer:
+      bootstarp-servers: localhost:9092
+      group-id: "simple-topic-group"
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      properties:
+          spring:
+              json:
+                  type:
+                      mapping: 'userDto: com.tnt.consumer.dto.UserDto'
+                  trusted:
+                      packages: '*'
 
