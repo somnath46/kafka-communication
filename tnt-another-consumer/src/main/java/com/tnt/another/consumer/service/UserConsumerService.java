@@ -11,7 +11,6 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class UserConsumerService {
 
-	// TODO: read topic name from config file
 	@KafkaListener(topics = "${tnt.kafka.topic}", groupId = "${spring.kafka.consumer.group-id}", containerFactory = "userKafkaListenerContainerFactory")
 	public void consumeMessage(UserDto dto) {
 		log.info("User iformation consumed in ANOTHER consumer service: {}", dto);
