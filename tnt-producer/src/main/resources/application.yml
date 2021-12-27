@@ -1,0 +1,21 @@
+server:
+  port: 9095
+tnt:
+  kafka:
+    topic: dummy-topic
+
+spring:
+  kafka:
+    producer:
+      bootstarp-servers: localhost:9092
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+      properties:
+          spring:
+              json:
+                  type:
+                      mapping: 'userDto: com.tnt.producer.dto.UserDto'
+                  trusted:
+                      packages: '*'
+    
+
